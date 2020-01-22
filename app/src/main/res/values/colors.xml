@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1D6FF7</color>
+    <color name="colorPrimaryDark">#1D6FF7</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="gruee_one">#00FF78</color>
+    <color name="gray_two">#666666</color>
+    <color name="gray_three">#999999</color>
+    <color name="grays">#eef3f6</color>
+    <color name="grays1">#E5ECF0</color>
+    <color name="style_divider_color">#C9C7CD</color>
+    <color name="gray_four">#e1e1e1</color>
+
+    <color name="date_picker_text_light">#59B29C</color>
+    <color name="date_picker_text_dark">#333333</color>
+    <color name="date_picker_text_dark_balck">#272727</color>
+    <color name="date_picker_divider">#11112233</color>
+
+    <color name="blue_dialog">#037BFF</color>
+
+    <color name="limegreen">#32CD32</color><!--橙绿色 -->   
+    <color name="crimson">#DC143C</color><!--暗深红色 -->   
+    <color name="red">#FF0000</color><!--红色 -->   
+
+    <color name="gray_one">#FF5252</color>
+    <color name="gray_five">#efefef</color>
+    <color name="blueness_one">#3a93cc</color>
+    <color name="blueness_two">#479efd</color>
+    <color name="blueness_three">#a6d3ff</color>
+
+    <color name="transparent">#00000000</color><!--透明色 -->   
+    <color name="white">#FFFFFF</color><!--白色 -->   
+</resources>

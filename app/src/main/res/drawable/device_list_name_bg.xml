@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 首页分类统计按钮按下去时候的样式 -->
+
+    <solid android:color="@color/grays1" />
+
+    <!-- 这里是设置为四周 也可以单独设置某个位置为圆角-->
+    <corners
+        android:bottomLeftRadius="0dp"
+        android:bottomRightRadius="0dp"
+        android:topLeftRadius="8dp"
+        android:topRightRadius="8dp" />
+
+</shape>

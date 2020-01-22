@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.elink.fusion">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/app_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/app_logo"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activity.FlowActivity" />
+        <activity android:name=".activity.FlownodActivity" />
+        <activity android:name=".activity.InstanceActivity" />
+
+        <!--<provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.elink.fusion.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            &lt;!&ndash; androidx.core.content.FILE_PROVIDER_PATHS &ndash;&gt;
+            <meta-data
+                android:name="androidx."
+                android:resource="@xml/provider_paths" />
+        </provider>-->
+    </application>
+
+</manifest>

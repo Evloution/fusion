@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>测试流程图</title>
+  <style>
+    #content {
+      width: 1000px;
+      margin: 0 auto;
+    }
+
+    .flow {
+      float: left;
+      margin-right: 15%;
+    }
+
+    .item {
+      width: 120px;
+      height: 40px;
+      color: aliceblue;
+      text-align: center;
+	  background-color: aquamarine;
+      line-height: 40px;
+      margin-bottom: 80%;
+    }
+
+    #top {
+      margin-left: 18%;
+    }
+
+    #top #item_partial {
+      margin-top: 42%;
+    }
+
+    #bottom #item_refuse {
+      margin-top: 42%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="content">
+    <div id="top" class="flow">
+      <div id="item_partial" class="item" onclick="Div_Click(this)">材料不全</div>
+    </div>
+    <div id="center" class="flow">
+      <div id="item_start" class="item" onclick="Div_Click(this)">提出申请</div>
+      <div id="item_examine" class="item" onclick="Div_Click(this)">材料审查</div>
+      <div id="item_spect" class="item" onclick="Div_Click(this)">现场勘察</div>
+      <div id="item_audit" class="item" onclick="Div_Click(this)">环评文件或审核</div>
+      <div id="item_end" class="item" onclick="Div_Click(this)">项目审批</div>
+    </div>
+    <div id="bottom" class="flow">
+      <div id="item_refuse" class="item" onclick="Div_Click(this)">不予受理</div>
+    </div>
+  </div>
+
+  <script src="./jsplumb.min.js"></script>
+
+  <script>
+    var flowId = null;
+    function loadwindow(id) {
+	  document.getElementById('item_start').innerHTML=id;
+    }
+    /* global jsPlumb */
+    jsPlumb.ready(function () {
+      var commonStyle = { //默认的基本样式
+        endpoint: "Blank", //终端点的形状 现在是矩形
+        paintStyle: { //设置连接线
+          stroke: '#1565C0',
+          strokeWidth: 2,
+          joinstyle: 'round'
+        },
+        endpointStyle: { //设置终端点的样式
+          fill: "transparent",
+          outlineStroke: 'darkgray',
+          outlineWidth: 0,
+          width: 10,
+          height: 10,
+        },
+        endpointStyles: [null, null],
+        overlays: [ //设置箭头的样式
+          ['Arrow', {
+            width: 12,
+            height: 5,
+            location: 1, //设置箭头的位置
+          }]
+        ]
+      };
+
+      function connectPoint(startPoint, endPoint, direction, conLineStyle) {
+        jsPlumb.connect({
+          source: startPoint, //起始点
+          target: endPoint, //目标点
+          anchor: direction, //链接线起始的方向，终止的方向
+          connector: "Flowchart", //连接线的类型 现在是直线,
+        }, commonStyle);
+      }
+
+      connectPoint('item_start', 'item_examine', ['Bottom', 'Top']);
+      connectPoint('item_examine', 'item_spect', ['Bottom', 'Top']);
+      connectPoint('item_spect', 'item_audit', ['Bottom', 'Top']);
+      connectPoint('item_audit', 'item_end', ['Bottom', 'Top']);
+
+      connectPoint('item_examine', 'item_partial', ['Left', 'Bottom']);
+      connectPoint('item_examine', 'item_refuse', ['Right', 'Bottom']);
+      connectPoint('item_refuse', 'item_start', ['Top', 'Right']);
+      connectPoint('item_partial', 'item_start', ['Top', 'Left']);
+    })
+
+    // jsPlumb.draggable('item_left'); //jsPlumb.draggable 可以使节点被拖动
+    // jsPlumb.draggable('item_right');
+
+    function Div_Click(sender) {
+      var id = sender.id;
+    }
+  </script>
+
+</body>
+
+</html>
